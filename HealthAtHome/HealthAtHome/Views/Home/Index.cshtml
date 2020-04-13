@@ -1,4 +1,5 @@
-﻿
+﻿@model List<HealthAtHome.Models.Exercise>
+
 @{
     ViewData["Title"] = "Index";
     Layout = "~/Views/Shared/_HomeLayout.cshtml";
@@ -7,4 +8,11 @@
 <h1>Hello World!</h1>
 
 <p>This is our dummy text, being rendered inside of our <code>_HomeLayout.cshtml</code> file!</p>
+
+@foreach (var exercise in Model)
+{
+    <h2>@exercise.ExerciseName</h2>
+
+    <p>@exercise.Description</p>
+}
 
