@@ -21,6 +21,7 @@ namespace HealthAtHome
             services.AddMvc();
 
             services.AddTransient<IExercise, ExerciseService>();
+            services.AddTransient<IUser, UserService>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

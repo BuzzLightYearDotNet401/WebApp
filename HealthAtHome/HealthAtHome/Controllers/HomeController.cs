@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using HealthAtHome.Models;
 using HealthAtHome.Models.Interfaces;
 using Microsoft.AspNetCore.Mvc;
 
@@ -10,17 +11,29 @@ namespace HealthAtHome.Controllers
     public class HomeController : Controller
     {
         // The IExercise interface.
-        private readonly IExercise _exercise;
+        private readonly IUser _user;
 
-        public HomeController(IExercise exercise)
+        public HomeController(IUser user)
         {
-            _exercise = exercise;
+            _user = user;
         }
-        
-        public async Task<IActionResult> Index()
+
+        [HttpGet]
+        public IActionResult Index()
         {
-            var result = await _exercise.GetAllExercises();
-            return View(result);
+            return View();
         }
+
+        [HttpPost]
+        public async Task<IActionResult> Index(User user)
+        {
+            var result = await _user.LogIn(user);
+
+          //TODO create logic for if user exists
+           
+            return null;
+        }
+        //TODO create a method to add logic for new user in home controller, will call registerUser()
+
     }
 }

@@ -1,4 +1,4 @@
-﻿@model List<HealthAtHome.Models.Exercise>
+﻿@addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
 
 @{
     ViewData["Title"] = "Index";
@@ -9,10 +9,10 @@
 
 <p>This is our dummy text, being rendered inside of our <code>_HomeLayout.cshtml</code> file!</p>
 
-@foreach (var exercise in Model)
-{
-    <h2>@exercise.ExerciseName</h2>
 
-    <p>@exercise.Description</p>
-}
 
+<form asp-action="Index" asp-controller="Home" method="post">
+    <label asp-for="Name"></label>
+    <input asp-for="Name" />
+    <button type="submit">Submit</button>
+</form>

@@ -1,4 +1,5 @@
-﻿<!DOCTYPE html>
+﻿@addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
+<!DOCTYPE html>
 
 <html>
 <head>
@@ -8,6 +9,14 @@
 </head>
 
 <body>
+    <header>
+        <a href="#">Home</a>
+        <nav>
+            <a href="#">Exercises</a>
+            <a href="#">Routines</a>
+            <a href="#">Favorites</a>
+        </nav>
+    </header>
     @RenderBody()
 </body>
 </html>
