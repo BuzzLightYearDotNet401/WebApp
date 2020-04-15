@@ -8,5 +8,7 @@ namespace HealthAtHome.Models.Interfaces
     public interface IExercise
     {
         Task<List<Exercise>> GetAllExercises();
+
+        Task<Exercise> GetExerciseByID(int id);
     }
 }
