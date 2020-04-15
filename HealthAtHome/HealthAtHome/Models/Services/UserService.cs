@@ -14,9 +14,11 @@ namespace HealthAtHome.Models.Services
     {
         private static readonly HttpClient client = new HttpClient();
 
+        private string baseURL = "https://healthathomeapi.azurewebsites.net/api";
+        //private string baseURL = "https://localhost:5001/api";
+
         public async Task<User> GetUser()
         {
-            var baseURL = "https://healthathomeapi.azurewebsites.net/api";
             string route = "users";
 
             client.DefaultRequestHeaders.Accept.Clear();
@@ -32,7 +34,6 @@ namespace HealthAtHome.Models.Services
 
         public async Task<HttpResponseMessage> LogIn(User user)
         {
-            var baseURL = "https://healthathomeapi.azurewebsites.net/api";
             string route = "users";
 
             client.DefaultRequestHeaders.Accept.Clear();
@@ -55,7 +56,6 @@ namespace HealthAtHome.Models.Services
         public async Task<HttpResponseMessage> RegisterUser(User user)
         {
 
-            var baseURL = "https://healthathomeapi.azurewebsites.net/api";
             string route = "users";
 
             client.DefaultRequestHeaders.Accept.Clear();
