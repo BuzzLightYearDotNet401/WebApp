@@ -39,4 +39,4 @@ Allyson Reyes
 
 Sue Tarazi
 - [GitHub](https://github.com/suetarazi)
-- [LinkedIn](https://www.linkedin.com/in/sue-tarazi-b792b520
+- [LinkedIn](https://www.linkedin.com/in/sue-tarazi-b792b520)
