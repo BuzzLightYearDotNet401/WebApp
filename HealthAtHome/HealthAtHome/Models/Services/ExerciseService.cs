@@ -13,9 +13,11 @@ namespace HealthAtHome.Models.Services
     {
         private static readonly HttpClient client = new HttpClient();
 
+        private string baseURL = "https://healthathomeapi.azurewebsites.net/api";
+        //private string baseURL = "https://localhost:5001/api";
+
         public async Task<List<Exercise>> GetAllExercises()
         {
-            var baseURL = "https://localhost:44310/api";
             string route = "exercises";
 
             client.DefaultRequestHeaders.Accept.Clear();
@@ -31,7 +33,6 @@ namespace HealthAtHome.Models.Services
 
         public async Task<Exercise> GetExerciseByID(int id)
         {
-            var baseURL = "https://healthathomeapi.azurewebsites.net/api";
             string route = $"exercises/{id}";
 
             client.DefaultRequestHeaders.Accept.Clear();
