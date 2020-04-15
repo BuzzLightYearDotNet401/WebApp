@@ -1,4 +1,4 @@
-﻿@addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
+﻿@model HealthAtHome.Models.User
 
 @{
     ViewData["Title"] = "Index";
@@ -12,7 +12,7 @@
 
 
 <form asp-action="Index" asp-controller="Home" method="post">
-    <label asp-for="Name"></label>
+    <label asp-for="Name">Username</label>
     <input asp-for="Name" />
-    <button type="submit">Submit</button>
+    <button type="submit">Log In</button>
 </form>
