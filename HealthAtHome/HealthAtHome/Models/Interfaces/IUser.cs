@@ -9,7 +9,7 @@ namespace HealthAtHome.Models.Interfaces
     public interface IUser
     {
         Task<User> GetUser();
-        Task<HttpResponseMessage> RegisterUser();
+        Task<HttpResponseMessage> RegisterUser(User user);
         Task<HttpResponseMessage> LogIn(User user);
     }
 }
