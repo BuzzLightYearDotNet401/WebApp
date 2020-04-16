@@ -58,7 +58,7 @@ $ dotnet run
 
 ##### Data Flow Image
 
-![Data Flow Image](/Assets/DomainModel410.png)
+![Data Flow Image](HealthAtHome/Assets/DomainModel410.png)
 
 ## Data Model
 
@@ -72,7 +72,7 @@ Our schema consists of 5 tables:
 
 ##### ERD
 
-![HealthAtHome ERD](/Assets/HealthAtHomeERD.png)
+![HealthAtHome ERD](HealthAtHome/Assets/HealthAtHomeERD.png)
 
 ## Change Log
 
