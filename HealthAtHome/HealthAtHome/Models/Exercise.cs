@@ -8,11 +8,11 @@ namespace HealthAtHome.Models
 {
     public class Exercise
     {
-        [JsonPropertyName("id")]
+        [JsonPropertyName("exerciseId")]
         public int ID { get; set; }
 
         [JsonPropertyName("exerciseName")]
-        public string ExerciseName { get; set; }
+        public string Name { get; set; }
 
         [JsonPropertyName("sets")]
         public int Sets { get; set; }

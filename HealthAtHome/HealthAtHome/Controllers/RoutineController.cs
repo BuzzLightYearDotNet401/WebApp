@@ -24,19 +24,19 @@ namespace HealthAtHome.Controllers
         public async Task<IActionResult> Routines(LoggedInUser user)
         {
             
-            var result = await _routine.GetAllRoutineNames();
+            var result = await _routine.GetAllRoutines();
             user.RoutineNames = result;
 
             return View(user);
         }
 
         // Route: /routine/5
-        /*[HttpGet("{id}")]
+        [HttpGet("{id}")]
         public async Task<IActionResult> GetARoutine(int id)
         {
-            var result = await _routine.GetExerciseByID(id);
+            var result = await _routine.GetRoutineById(id);
 
             return View(result);
-        }*/
+        }
     }
 }

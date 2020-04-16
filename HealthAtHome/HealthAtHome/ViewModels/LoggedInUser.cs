@@ -22,6 +22,6 @@ namespace HealthAtHome.ViewModels
             "Invalid Username!",
         };
 
-        public List<RoutineName> RoutineNames { get; set; }
+        public List<Routine> RoutineNames { get; set; }
     }
 }
