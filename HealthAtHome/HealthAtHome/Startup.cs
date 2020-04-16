@@ -20,6 +20,7 @@ namespace HealthAtHome
         {
             services.AddMvc();
 
+            services.AddTransient<IRoutine, RoutineService>();
             services.AddTransient<IExercise, ExerciseService>();
             services.AddTransient<IUser, UserService>();
             services.AddTransient<IRating, RatingService>();

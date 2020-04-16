@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using HealthAtHome.Models.Interfaces;
+using HealthAtHome.ViewModels;
 using Microsoft.AspNetCore.Mvc;
 
 namespace HealthAtHome.Controllers
@@ -10,30 +11,32 @@ namespace HealthAtHome.Controllers
     [Route("[controller]")]
     public class RoutineController : Controller
     {
-        private readonly IExercise _exercise;
+        private readonly IRoutine _routine;
 
-        public RoutineController(IExercise exercise)
+        public RoutineController(IRoutine routine)
         {
-            _exercise = exercise;
+            _routine = routine;
         }
 
         // Get all Routines View.
         // Route: /routine
         [HttpGet]
-        public async Task<IActionResult> Index()
+        public async Task<IActionResult> Routines(LoggedInUser user)
         {
-            var result = await _exercise.GetAllExercises();
+            
+            var result = await _routine.GetAllRoutineNames();
+            user.RoutineNames = result;
 
-            return View(result);
+            return View(user);
         }
 
         // Route: /routine/5
-        [HttpGet("{id}")]
+        /*[HttpGet("{id}")]
         public async Task<IActionResult> GetARoutine(int id)
         {
-            var result = await _exercise.GetExerciseByID(id);
+            var result = await _routine.GetExerciseByID(id);
 
             return View(result);
-        }
+        }*/
     }
 }
