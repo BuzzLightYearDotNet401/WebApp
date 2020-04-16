@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using HealthAtHome.ViewModels;
 using HealthAtHome.Models;
 using HealthAtHome.Models.Interfaces;
 using Microsoft.AspNetCore.Mvc;
@@ -21,17 +22,35 @@ namespace HealthAtHome.Controllers
         [HttpGet]
         public IActionResult Index()
         {
-            return View();
+            LoggedInUser currentUser = new LoggedInUser();
+            /*currentUser.UserName = userName;
+            currentUser.IsLoggedIn = loggedIn;*/
+
+            return View(currentUser);
         }
 
-        [HttpPost]
-        public async Task<IActionResult> Index(User user)
+        [HttpGet]
+        public async Task<IActionResult> LogInUser(LoggedInUser user)
         {
-            var result = await _user.LogIn(user);
+           var result = await _user.LogIn();
 
           //TODO create logic for if user exists
-           
+          foreach (User userObject in result)
+            {
+                if (userObject.Name == user.UserName)
+                {
+                    user.IsLoggedIn = true;
+                    return RedirectToAction("Routines", "Routine", user);
+                }
+                else
+                {
+                    user.ErrorFlag = true;
+                }
+                
+            }
             return null;
+           
+            
         }
         //TODO create a method to add logic for new user in home controller, will call registerUser()
 

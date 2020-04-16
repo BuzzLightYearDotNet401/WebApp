@@ -14,8 +14,8 @@ namespace HealthAtHome.Models.Services
     {
         private static readonly HttpClient client = new HttpClient();
 
-        private string baseURL = "https://healthathomeapi.azurewebsites.net/api";
-        //private string baseURL = "https://localhost:5001/api";
+        //private string baseURL = "https://healthathomeapi.azurewebsites.net/api";
+        private string baseURL = "https://localhost:44310/api";
 
         public async Task<User> GetUser()
         {
@@ -32,7 +32,7 @@ namespace HealthAtHome.Models.Services
             return result;
         }
 
-        public async Task<HttpResponseMessage> LogIn(User user)
+        public async Task<List<User>> LogIn()
         {
             string route = "users";
 
@@ -40,11 +40,15 @@ namespace HealthAtHome.Models.Services
 
             client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
 
-            var stringContent = new StringContent(JsonConvert.SerializeObject(user), Encoding.UTF8, "application/json");
+            // var stringContent = new StringContent(JsonConvert.SerializeObject(user), Encoding.UTF8, "application/json");
 
-            var streamTask = await client.PostAsync($"{baseURL}/{route}", stringContent);
+            // var streamTask = await client.PostAsync($"{baseURL}/{route}", stringContent);
 
-            return streamTask;
+            var streamTask = await client.GetStreamAsync($"{baseURL}/{route}");
+
+            var result = await System.Text.Json.JsonSerializer.DeserializeAsync<List<User>>(streamTask);
+
+            return result;
         }
 
 

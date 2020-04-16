@@ -5,10 +5,10 @@ namespace HealthAtHome.Models
 {
     public class RoutineName
     {
-        [JsonPropertyName("id")]
+        [JsonPropertyName("routineNameId")]
         public int ID { get; set; }
 
-        [JsonPropertyName("routineName")]
+        [JsonPropertyName("nameOfRoutine")]
         public string Name { get; set; }
     }
 }

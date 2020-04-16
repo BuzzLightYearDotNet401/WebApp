@@ -10,6 +10,6 @@ namespace HealthAtHome.Models.Interfaces
     {
         Task<User> GetUser();
         Task<HttpResponseMessage> RegisterUser(User user);
-        Task<HttpResponseMessage> LogIn(User user);
+        Task<List<User>> LogIn();
     }
 }

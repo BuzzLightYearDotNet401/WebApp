@@ -1,5 +1,4 @@
-﻿@model HealthAtHome.Models.User
-
+﻿@model HealthAtHome.ViewModels.LoggedInUser
 @{
     ViewData["Title"] = "Index";
     Layout = "~/Views/Shared/_HomeLayout.cshtml";
@@ -7,12 +6,21 @@
 
 <h1>Hello World!</h1>
 
+@if (Model.IsLoggedIn == true)
+{
+    <p>Welcome @Model.UserName!</p>
+}
+
+
 <p>This is our dummy text, being rendered inside of our <code>_HomeLayout.cshtml</code> file!</p>
 
 
-
-<form asp-action="Index" asp-controller="Home" method="post">
-    <label asp-for="Name">Username</label>
-    <input asp-for="Name" />
+@if (Model.ErrorFlag == true)
+{
+    <p class="error">@Model.Errors[0]</p>
+}
+<form asp-action="LogInUser" asp-controller="Home" method="get">
+    <label asp-for="UserName">Username</label>
+    <input asp-for="UserName" />
     <button type="submit">Log In</button>
 </form>

@@ -1,0 +1,23 @@
+﻿@model HealthAtHome.ViewModels.LoggedInUser
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_HomeLayout.cshtml";
+}
+
+<h1>Welcome @Model.UserName</h1>
+
+<p>This is the all routines View.</p>
+
+<p>Empty Bicep</p>
+<img src="~/Assets/RatingIcons/gym.svg" height="20" width="20"/>
+
+<p>Gains Bicep</p>
+<img src="~/Assets/RatingIcons/gym2.svg" height="20" width="20"/>
+
+<h2>this is a list of all exercises for testing</h2>
+
+@foreach (var routine in Model.RoutineNames)
+{
+    <h3>@routine.Name</h3>
+    <p>@routine.ID</p>
+}
