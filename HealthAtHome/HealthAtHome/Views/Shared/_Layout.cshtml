@@ -1,4 +1,6 @@
-﻿<!DOCTYPE html>
+﻿@model HealthAtHome.ViewModels.LoggedInUser
+
+<!DOCTYPE html>
 
 <html>
 <head>
@@ -8,16 +10,39 @@
 
 <body>
     <header>
-        <a asp-controller="Home" asp-action="Index">Home</a>
-        <nav>
-            <a href="#">Exercises</a>
-            <a asp-controller="Routine" asp-action="Index">Routines</a>
-            <a href="#">Favorites</a>
-        </nav>
+        @if (Model.UserName == "Anonymous")
+        {
+            <a asp-controller="Home" asp-action="Index">Home</a>
+        }
+        else
+        {
+            <a asp-controller="Home" asp-action="Index">Log Out</a>
+        }
+    <form asp-action="Routines" asp-controller="Routine" method="get">
+        <input asp-for="@Model.ID" value="@Model.ID" hidden />
+        <input asp-for="@Model.UserName" value="@Model.UserName" hidden />
+        <input asp-for="@Model.IsLoggedIn" value="@Model.IsLoggedIn" hidden />
+        <input asp-for="@Model.RoutineNames" value="@Model.RoutineNames" hidden />
+        <input asp-for="@Model.RoutineThing" value="@Model.RoutineThing" hidden />
+        <input asp-for="@Model.RoutineID" value="@Model.RoutineID" hidden />
+        <button type="submit">Routines</button>
+    </form>
+    <form asp-action="Favorites" asp-controller="Rating" method="get">
+        <input asp-for="@Model.ID" value="@Model.ID" hidden />
+        <input asp-for="@Model.UserName" value="@Model.UserName" hidden />
+        <input asp-for="@Model.IsLoggedIn" value="@Model.IsLoggedIn" hidden />
+        <input asp-for="@Model.RoutineNames" value="@Model.RoutineNames" hidden />
+        <input asp-for="@Model.RoutineThing" value="@Model.RoutineThing" hidden />
+        <input asp-for="@Model.RoutineID" value="@Model.RoutineID" hidden />
+        <button type="submit">Favorites</button>
+    </form>
+
+
     </header>
+
     @RenderBody()
-<footer>
-    Copyright &copy; 2020 - <a href="https://github.com/BuzzLightYearDotNet401" target="_blank">TeamBuzzLightYear</a>
-</footer>
+    <footer>
+        Copyright &copy; 2020 - <a href="https://github.com/BuzzLightYearDotNet401" target="_blank">TeamBuzzLightYear</a>
+    </footer>
 </body>
 </html>

@@ -20,6 +20,7 @@ namespace HealthAtHome.Controllers
 
         // Get all Routines View.
         // Route: /routine
+        [ActionName("Routines")]
         [HttpGet]
         public async Task<IActionResult> Routines(LoggedInUser user)
         {
@@ -31,12 +32,17 @@ namespace HealthAtHome.Controllers
         }
 
         // Route: /routine/5
-        [HttpGet("{id}")]
-        public async Task<IActionResult> GetARoutine(int id)
+        [ActionName("GetARoutine")]
+        [HttpGet, Route("potato")]
+        public async Task<IActionResult> GetARoutine(LoggedInUser user)
         {
+            int id = user.RoutineID;
+
             var result = await _routine.GetRoutineById(id);
 
-            return View(result);
+            user.RoutineThing = result;
+
+            return View(user);
         }
     }
 }

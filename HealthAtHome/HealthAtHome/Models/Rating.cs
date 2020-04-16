@@ -5,25 +5,25 @@ namespace HealthAtHome.Models
 {
     public class Rating
     {
-        // Primary key
-
-        [JsonPropertyName("id")]
+        [JsonPropertyName("ratingId")]
         public int ID { get; set; }
 
-        // Foreign key
+        [JsonPropertyName("userId")]
+        public int UserId { get; set; }
 
-        [JsonPropertyName("userID")]
-        public int UserID { get; set; }
-
-        [JsonPropertyName("routineID")]
-        public int RoutineID { get; set; }
-
-        //Payload
+        [JsonPropertyName("routineNameId")]
+        public int RoutineNameId { get; set; }
 
         [JsonPropertyName("starRating")]
-        public int StarRating { get; set; }
+        public StarRating StarRating { get; set; }
+    }
 
-        [JsonPropertyName("isCurrent")]
-        public bool IsCurrent { get; set; }
+    public enum StarRating
+    {
+        OneStar = 1,
+        TwoStar = 2,
+        ThreeStar = 3,
+        FourStar = 4,
+        FiveStar = 5
     }
 }

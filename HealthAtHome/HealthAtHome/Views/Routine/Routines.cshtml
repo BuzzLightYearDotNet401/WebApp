@@ -5,11 +5,23 @@
 }
 
 <h1>Welcome @Model.UserName</h1>
+<p>Your ID is: @Model.ID</p>
 
 
 
 @foreach (var routine in Model.RoutineNames)
 {
+    Model.RoutineID = routine.ID;
+
     <h3>@routine.Name</h3>
-    <a href="https://localhost:44378/routine/@routine.ID">View Routine</a>
+
+    <form asp-controller="Routine" asp-action="GetARoutine" method="get">
+        <input asp-for="@Model.ID" value="@Model.ID" hidden />
+        <input asp-for="@Model.UserName" value="@Model.UserName" hidden />
+        <input asp-for="@Model.IsLoggedIn" value="@Model.IsLoggedIn" hidden />
+        <input asp-for="@Model.RoutineNames" value="@Model.RoutineNames" hidden />
+        <input asp-for="@Model.RoutineThing" value="@Model.RoutineThing" hidden />
+        <input asp-for="@Model.RoutineID" value="@Model.RoutineID" hidden />
+        <button type="submit">View Routine</button>
+    </form>
 }
