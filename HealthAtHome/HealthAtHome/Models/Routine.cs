@@ -14,5 +14,7 @@ namespace HealthAtHome.Models
 
         [JsonPropertyName("listOfExercises")]
         public List<Exercise> Exercises { get; set; }
+
+        public StarRating Rating { get; set; }
     }
 }

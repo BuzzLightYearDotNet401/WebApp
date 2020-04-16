@@ -1,14 +1,36 @@
-﻿@model HealthAtHome.Models.Routine
+﻿@model HealthAtHome.ViewModels.LoggedInUser
 @{
     ViewData["Title"] = "Exercise";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h1>Exercise</h1>
+<h1>@Model.RoutineThing.Name</h1>
 
-<h1>@Model.Name</h1>
+<h1>@Model.UserName</h1>
+<p>Your ID is: @Model.ID</p>
 
-@foreach (var exercise in Model.Exercises)
+
+<p>Routine Rating: @Model.RoutineThing.Rating</p>
+
+<p>Update Rating:</p>
+<form asp-controller="Rating" asp-action="CreateRating" method="post">
+    <select asp-for="@Model.Rating">
+        <option value="1">1</option>
+        <option value="2">2</option>
+        <option value="3">3</option>
+        <option value="4">4</option>
+        <option value="5">5</option>
+    </select>
+    <input asp-for="@Model.ID"  value="@Model.ID" hidden />
+    <input asp-for="@Model.UserName" value="@Model.UserName" hidden />
+    <input asp-for="@Model.IsLoggedIn" value="@Model.IsLoggedIn" hidden />
+    <input asp-for="@Model.RoutineNames" value="@Model.RoutineNames" hidden />
+    <input asp-for="@Model.RoutineThing" value="@Model.RoutineThing" hidden />
+    <input asp-for="@Model.RoutineID" value="@Model.RoutineID" hidden />
+    <button type="submit">Rate It!</button>
+</form>
+
+@foreach (var exercise in Model.RoutineThing.Exercises)
 {
     <div>
         <h3>@exercise.Name</h3>

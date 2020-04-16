@@ -2,7 +2,9 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using HealthAtHome.Models;
 using HealthAtHome.Models.Interfaces;
+using HealthAtHome.ViewModels;
 using Microsoft.AspNetCore.Mvc;
 
 
@@ -19,9 +21,35 @@ namespace HealthAtHome.Controllers
         }
 
         // GET: /<controller>/
-        public IActionResult Index()
+        public IActionResult Rating()
         {
             return View();
+        }
+
+        [HttpGet]
+        public IActionResult Favorites(LoggedInUser currentUser)
+        {
+            return View(currentUser);
+        }
+
+        [HttpPost]
+        public async Task<IActionResult> CreateRating(LoggedInUser currentUser)
+        {
+            Rating newRating = new Rating()
+            {
+                UserId = currentUser.ID,
+                RoutineNameId = currentUser.RoutineID,
+                StarRating = currentUser.Rating
+            };
+
+            var result = await _rating.CreateRating(newRating);
+
+            if (result.IsSuccessStatusCode == true)
+            {
+                return RedirectToAction("GetARoutine", "Routine", currentUser);
+            }
+
+            return RedirectToAction("GetARoutine", "Routine", currentUser);
         }
     }
 }

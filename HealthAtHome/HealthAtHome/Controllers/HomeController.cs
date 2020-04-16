@@ -43,11 +43,12 @@ namespace HealthAtHome.Controllers
                 if (userObject.Name == user.UserName)
                 {
                     user.IsLoggedIn = true;
-                    user.ErrorType = FlashErrors.LoginError;
-                    return RedirectToAction("Routines", "Routine", user);
+                    user.ID = userObject.ID;
+                    return RedirectToAction("Favorites", "Rating", user);
                 }                
             }
             user.ErrorFlag = true;
+            user.ErrorType = FlashErrors.LoginError;
             return RedirectToAction("LoginError", user);
         }
 
@@ -76,7 +77,17 @@ namespace HealthAtHome.Controllers
 
             if (result.IsSuccessStatusCode == true)
             {
-                return RedirectToAction("Routines", "Routine", user);
+                var allUsers = await _user.LogIn();
+
+                foreach (User userObject in allUsers)
+                {
+                    if (userObject.Name == user.UserName)
+                    {
+                        user.IsLoggedIn = true;
+                        user.ID = userObject.ID;
+                        return RedirectToAction("Favorites", "Rating", user);
+                    }
+                }
             }
 
             user.ErrorFlag = true;

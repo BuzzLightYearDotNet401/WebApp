@@ -8,6 +8,9 @@ namespace HealthAtHome.ViewModels
 {
     public class LoggedInUser
     {
+        // the current user's id
+        public int ID { get; set; }
+
         // The current user's username.
         public string UserName { get; set; } = "Anonymous";
 
@@ -26,7 +29,15 @@ namespace HealthAtHome.ViewModels
             "User already exists!"
         };
 
+        // All routines for the list.
         public List<Routine> RoutineNames { get; set; }
+
+        // Individual routine.
+        public Routine RoutineThing { get; set; }
+
+        public int RoutineID { get; set; }
+
+        public StarRating Rating { get; set; }
     }
 
     public enum FlashErrors
