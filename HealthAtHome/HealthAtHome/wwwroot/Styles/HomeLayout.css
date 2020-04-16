@@ -1,3 +1,60 @@
-﻿body {
-    background-color: fuchsia;
+﻿
+body{
+    
+    display:flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    color: white;
+}
+
+header form {
+    display: inline;
+}
+
+.logout {
+    display: inline;
+    color: white;
+}
+.logout a{
+    text-decoration: none;
+    font-size: 1rem;
+   color: white;
+}
+
+header form button{
+    border: none;
+    background: none;
+    font-size: 1rem;
+    color: white;
+}
+
+.hero-text {
+    padding: 5em;
+    text-align: center;
+    color: white;
+}
+
+.login-form button:hover {
+    background-color: gray;
+    border-radius: 1em;
+}
+
+.register-form button:hover {
+    background-color: gray;
+    border-radius: 1em;
+}
+
+#backgroundVideo {
+    position: fixed;
+    right:0;
+    bottom: 0;
+    min-width: 100%;
+    min-height: 100%;
+    z-index: -5;
+}
+
+footer {
+    color: white;
 }
