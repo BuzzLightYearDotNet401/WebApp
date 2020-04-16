@@ -1,0 +1,30 @@
+﻿@model HealthAtHome.ViewModels.LoggedInUser
+
+@{
+    ViewData["Title"] = "LoginError";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h1>Health At Home</h1>
+
+<section class="login-form">
+    @if (Model.ErrorFlag == true)
+    {
+        switch (Model.ErrorType)
+        {
+            case HealthAtHome.ViewModels.FlashErrors.LoginError:
+                <p class="error">@Model.Errors[0]</p>
+                break;
+            case HealthAtHome.ViewModels.FlashErrors.RegisterError:
+                <p class="error">@Model.Errors[1]</p>
+                break;
+        }
+    }
+
+    <form asp-action="LogInUser" asp-controller="Home" method="get">
+        <label asp-for="UserName">Username</label>
+        <input asp-for="UserName" />
+        <button type="submit">Log In</button>
+    </form>
+</section>
+

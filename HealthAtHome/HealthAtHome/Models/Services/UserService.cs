@@ -40,10 +40,6 @@ namespace HealthAtHome.Models.Services
 
             client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
 
-            // var stringContent = new StringContent(JsonConvert.SerializeObject(user), Encoding.UTF8, "application/json");
-
-            // var streamTask = await client.PostAsync($"{baseURL}/{route}", stringContent);
-
             var streamTask = await client.GetStreamAsync($"{baseURL}/{route}");
 
             var result = await System.Text.Json.JsonSerializer.DeserializeAsync<List<User>>(streamTask);
