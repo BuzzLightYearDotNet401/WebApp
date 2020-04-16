@@ -14,3 +14,11 @@
         <button type="submit">Log In</button>
     </form>
 </section>
+
+<section class="register-form">
+    <form asp-action="RegisterUser" asp-controller="Home" method="post">
+        <label asp-for="UserName">Username</label>
+        <input asp-for="UserName" />
+        <button type="submit">Register</button>
+    </form>
+</section>

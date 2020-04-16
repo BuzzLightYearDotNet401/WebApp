@@ -43,6 +43,7 @@ namespace HealthAtHome.Controllers
                 if (userObject.Name == user.UserName)
                 {
                     user.IsLoggedIn = true;
+                    user.ErrorType = FlashErrors.LoginError;
                     return RedirectToAction("Routines", "Routine", user);
                 }                
             }
@@ -51,6 +52,36 @@ namespace HealthAtHome.Controllers
         }
 
         //TODO create a method to add logic for new user in home controller, will call registerUser()
+        [HttpPost]
+        public async Task<IActionResult> RegisterUser(LoggedInUser user)
+        {
+            var userExists = await _user.LogIn();
 
+            foreach (User userObject in userExists)
+            {
+                if (userObject.Name == user.UserName)
+                {
+                    user.ErrorFlag = true;
+                    user.ErrorType = FlashErrors.RegisterError;
+                    return RedirectToAction("LoginError", user);
+                }
+            }
+
+            User newUser = new User()
+            {
+                Name = user.UserName
+            };
+
+            var result = await _user.RegisterUser(newUser);
+
+            if (result.IsSuccessStatusCode == true)
+            {
+                return RedirectToAction("Routines", "Routine", user);
+            }
+
+            user.ErrorFlag = true;
+            user.ErrorType = FlashErrors.RegisterError;
+            return RedirectToAction("LoginError", user);
+        }
     }
 }
