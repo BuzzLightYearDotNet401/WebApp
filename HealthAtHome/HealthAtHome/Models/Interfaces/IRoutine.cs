@@ -7,6 +7,8 @@ namespace HealthAtHome.Models.Interfaces
 {
     public interface IRoutine
     {
-        Task<List<RoutineName>> GetAllRoutineNames();
+        Task<List<Routine>> GetAllRoutines();
+
+        Task<Routine> GetRoutineById(int id);
     }
 }

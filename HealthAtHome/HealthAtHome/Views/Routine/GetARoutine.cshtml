@@ -1,4 +1,4 @@
-﻿@model HealthAtHome.Models.Exercise
+﻿@model HealthAtHome.Models.Routine
 @{
     ViewData["Title"] = "Exercise";
     Layout = "~/Views/Shared/_HomeLayout.cshtml";
@@ -6,5 +6,15 @@
 
 <h1>Exercise</h1>
 
-<p>@Model.ExerciseName</p>
+<h1>@Model.Name</h1>
 
+@foreach (var exercise in Model.Exercises)
+{
+    <div>
+        <h3>@exercise.Name</h3>
+        <p>@exercise.Description</p>
+        <p>@exercise.Sets</p>
+        <p>@exercise.Reps</p>
+        <img src="@exercise.Image" />
+    </div>
+}

@@ -15,7 +15,7 @@ namespace HealthAtHome.Models.Services
         //private string baseURL = "https://healthathomeapi.azurewebsites.net/api";
         private string baseURL = "https://localhost:44310/api";
 
-        public async Task<List<RoutineName>> GetAllRoutineNames()
+        public async Task<List<Routine>> GetAllRoutines()
         {
             string route = "routinenames";
 
@@ -25,11 +25,25 @@ namespace HealthAtHome.Models.Services
 
             var streamTask = await client.GetStreamAsync($"{baseURL}/{route}");
 
-            var result = await JsonSerializer.DeserializeAsync<List<RoutineName>>(streamTask);
+            var result = await JsonSerializer.DeserializeAsync<List<Routine>>(streamTask);
 
             return result;
         }
-        
+
+        public async Task<Routine> GetRoutineById(int id)
+        {
+            string route = $"routinenames/{id}";
+
+            client.DefaultRequestHeaders.Accept.Clear();
+
+            client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
+
+            var streamTask = await client.GetStreamAsync($"{baseURL}/{route}");
+
+            var result = await JsonSerializer.DeserializeAsync<Routine>(streamTask);
+
+            return result;
+        }
     }
 }
 
