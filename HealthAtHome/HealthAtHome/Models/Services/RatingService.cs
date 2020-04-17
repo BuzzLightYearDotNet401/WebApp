@@ -30,5 +30,20 @@ namespace HealthAtHome.Models.Services
 
             return streamTask;
         }
+
+        public async Task<HttpResponseMessage> UpdateRating(Rating rating)
+        {
+            string route = $"ratings/{rating.ID}";
+
+            client.DefaultRequestHeaders.Accept.Clear();
+
+            client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
+
+            var stringContent = new StringContent(JsonConvert.SerializeObject(rating), Encoding.UTF8, "application/json");
+
+            var streamTask = await client.PutAsync($"{baseURL}/{route}", stringContent);
+
+            return streamTask;
+        }
     }
 }

@@ -20,12 +20,6 @@ namespace HealthAtHome.Controllers
             _rating = rating;
         }
 
-        // GET: /<controller>/
-        public IActionResult Rating()
-        {
-            return View();
-        }
-
         [HttpGet]
         public IActionResult Favorites(LoggedInUser currentUser)
         {
@@ -43,6 +37,26 @@ namespace HealthAtHome.Controllers
             };
 
             var result = await _rating.CreateRating(newRating);
+
+            if (result.IsSuccessStatusCode == true)
+            {
+                return RedirectToAction("GetARoutine", "Routine", currentUser);
+            }
+
+            return RedirectToAction("GetARoutine", "Routine", currentUser);
+        }
+
+        [HttpPost, Route("bananas")]
+        public async Task<IActionResult> UpdateRating(LoggedInUser currentUser)
+        {
+            Rating updatedRating = new Rating()
+            {
+                UserId = currentUser.ID,
+                RoutineNameId = currentUser.RoutineID,
+                StarRating = (int)currentUser.Rating
+            };
+
+            var result = await _rating.UpdateRating(updatedRating);
 
             if (result.IsSuccessStatusCode == true)
             {

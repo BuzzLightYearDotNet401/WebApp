@@ -20,6 +20,7 @@ namespace HealthAtHome.Models
 
     public enum StarRating
     {
+        RatingNotFound = 0,
         OneStar = 1,
         TwoStar = 2,
         ThreeStar = 3,

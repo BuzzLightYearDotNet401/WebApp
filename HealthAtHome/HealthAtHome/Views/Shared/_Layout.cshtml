@@ -41,8 +41,18 @@
     </header>
 
     @RenderBody()
-    <footer>
-        Copyright &copy; 2020 - <a href="https://github.com/BuzzLightYearDotNet401" target="_blank">TeamBuzzLightYear</a>
-    </footer>
+<footer>
+    Copyright &copy; 2020 - <a href="https://github.com/BuzzLightYearDotNet401" target="_blank">TeamBuzzLightYear</a>
+
+    <form asp-action="DeleteUser" asp-controller="Home" method="post">
+        <input asp-for="@Model.ID" value="@Model.ID" hidden />
+        <input asp-for="@Model.UserName" value="@Model.UserName" hidden />
+        <input asp-for="@Model.IsLoggedIn" value="@Model.IsLoggedIn" hidden />
+        <input asp-for="@Model.RoutineNames" value="@Model.RoutineNames" hidden />
+        <input asp-for="@Model.RoutineThing" value="@Model.RoutineThing" hidden />
+        <input asp-for="@Model.RoutineID" value="@Model.RoutineID" hidden />
+        <button type="submit">Delete Account</button>
+    </form>
+</footer>
 </body>
 </html>
