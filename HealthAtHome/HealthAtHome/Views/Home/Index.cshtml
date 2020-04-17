@@ -1,43 +1,51 @@
 ﻿@model HealthAtHome.ViewModels.LoggedInUser
 
 @{
-    ViewData["Title"] = "Index";
+    ViewData["Title"] = "HealthAtHome";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
-<link rel="stylesheet" href="~/Styles/HomeLayout.css" type="text/css" />
-<video autoplay muted loop id="backgroundVideo">
-    <source src="~/Assets/dbellvideo.mp4" type="video/mp4" />
-</video>
 
-<h1>Health At Home</h1>
 
-<section class="login-form">
-    <form asp-action="LogInUser" asp-controller="Home" method="get">
-        <label asp-for="UserName">Username</label>
-        <input asp-for="UserName" />
-        <button type="submit">Log In</button>
-    </form>
+<section class="hero-section">
+    <video class="hero-video" autoplay muted loop id="backgroundVideo">
+        <source src="~/Assets/dbellvideo.mp4" type="video/mp4" />
+    </video>
+    <div class="hero-overlay"></div>
+    <div class="hero-content">
+        <h1>Health At Home</h1>
+        <p>Stay home, stay healthy, stay sane!</p>
+        <form class="login-form" asp-action="LogInUser" asp-controller="Home" method="get">
+            <p>Log in to your profile now!</p>
+            <label asp-for="UserName">Username</label>
+            <input asp-for="UserName" />
+            <button type="submit">Log In</button>
+        </form>
+        <p class="register-sub">Don't have a profile? <span id="register-btn">Register now!</span></p>
+        <div class="sue-text">
+            <p>Ready to work out at Home?  No gym required!</p>
+            <p>Not able to get to the gym, but still would like a workout you can do at home?</p>
+            <p>Health at home has you covered! A complete workout with routines that target each region of the body are included.</p>
+            <p>There are also routines for yoga and stretching. Health at Home allows you to create a user profile to rate your routines as well.</p>
+            <p>Working out at home can be easily accomplished using your body weight for some exercises. For those exercises that require weights, consider using common household items:</p>
+            <ul>
+                <li>Gallon of milk: 8 lbs</li>
+                <li>Half-gallon of milk or orange juice: 4 lbs</li>
+                <li>Can of soup or beans: 1 lb</li>
+                <li>8oz Water bottle: ½ lb</li>
+                <li>Gallon of milk: 8 lbs</li>
+                <li>Laundry basket: depending what you put in it, it can be heavy or light. It makes a good barbell for deadlifts, good mornings and other lower body exercises.</li>
+            </ul>
+        </div>
+    </div>
 </section>
 
-<section class="register-form">
+
+<section id="register-section" class="register-form hidden">
+    <h3>Register your profile!</h3>
     <form asp-action="RegisterUser" asp-controller="Home" method="post">
         <label asp-for="UserName">Username</label>
         <input asp-for="UserName" />
         <button type="submit">Register</button>
     </form>
+    <p id="close-register">Close</p>
 </section>
-
-    <div class="">
-        <div class="hero-text">
-            <p>
-                Ready to work out at Home?  No gym required!<br />
-                Not able to get to the gym, but still would like a workout you can do at home? <br />Health at home has you covered! A complete workout with routines that target each region of the body are included.<br /> There are also routines for yoga and stretching. Health at Home allows you to create a user profile to rate your routines as well.<br />
-                Working out at home can be easily accomplished using your body weight for some exercises. For those exercises that require weights, consider using common household items:<br />
-                Gallon of milk: 8 lbs<br />
-                Half-gallon of milk or orange juice: 4 lbs<br />
-                Can of soup or beans: 1 lb<br />
-                8oz Water bottle: 1 ½ lbs <br />
-                Laundry basket: depending what you put in it, it can be heavy or light. It makes a good barbell for deadlifts, good mornings and other lower body exercises.
-            </p>
-        </div>
-    </div>

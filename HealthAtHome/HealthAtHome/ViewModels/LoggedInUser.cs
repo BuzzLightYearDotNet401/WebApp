@@ -12,7 +12,7 @@ namespace HealthAtHome.ViewModels
         public int ID { get; set; }
 
         // The current user's username.
-        public string UserName { get; set; } = "Anonymous";
+        public string UserName { get; set; }
 
         // Is the current user logged in.
         public bool IsLoggedIn { get; set; }

@@ -1,0 +1,329 @@
+﻿/*************************/
+/* Variable Declarations */
+/*************************/
+$offWhite: rgb(240, 240, 240);
+$offBlue: rgb(20, 60, 120);
+
+body {
+    width: 100vw;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: $offWhite;
+    overflow-x: hidden;
+
+    header {
+        width: 100%;
+        height: 4rem;
+        background-color: $offBlue;
+        border-bottom: solid 0.1rem black;
+
+        nav {
+            display: flex;
+            flex-direction: row;
+            justify-content: center;
+            align-items: center;
+            padding: 1rem;
+
+            form {
+                margin-right: 2rem;
+
+                button {
+                    padding: 0;
+                    background: none;
+                    border: none;
+                    font-size: 1.2rem;
+                    font-weight: bold;
+                    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+                    color: $offWhite;
+                }
+
+                button:hover {
+                    color: burlywood;
+                    cursor: pointer;
+                }
+            }
+
+            a {
+                padding: 0;
+                font-size: 1.2rem;
+                text-decoration: none;
+                font-weight: bold;
+                font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+                color: $offWhite;
+            }
+
+            a:hover {
+                color: burlywood;
+                cursor: pointer;
+            }
+        }
+    }
+
+    .hero-section {
+        position: relative;
+        height: 100vh;
+        width: 100vw;
+        left: 0;
+        top: 0;
+
+        .hero-video {
+            position: absolute;
+            //height: 100vh;
+            width: 100%;
+            left: 0;
+            top: 0;
+            overflow-y: hidden;
+        }
+
+        .hero-overlay {
+            position: absolute;
+            height: 100%;
+            width: 100%;
+            left: 0;
+            top: 0;
+            background-color: black;
+            opacity: 0.6;
+        }
+
+        .hero-content {
+            position: absolute;
+            height: 100%;
+            width: 100%;
+            left: 0;
+            top: 0;
+            text-align: center;
+
+            h1 {
+                font-size: 4rem;
+                font-weight: bold;
+                margin-top: 20vh;
+                color: $offWhite;
+            }
+
+            p {
+                font-size: 1.8rem;
+                color: $offWhite;
+                margin-top: 2rem;
+            }
+
+            .error {
+                font-size: 1rem;
+                color: red;
+            }
+
+            .login-form {
+                margin-top: 4rem;
+
+                p {
+                    font-size: 1.4rem;
+                    margin-bottom: 1rem;
+                }
+
+                label {
+                    color: $offWhite;
+                }
+            }
+
+            .register-sub {
+                font-size: 1.2rem;
+
+                span {
+                    color: burlywood;
+                }
+
+                span:hover {
+                    cursor: pointer;
+                    color: fuchsia;
+                }
+            }
+
+            .sue-text {
+                margin-top: 2.4rem;
+                font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+
+                p {
+                    color: $offWhite;
+                    font-size: 1rem;
+                    padding: 0;
+                    margin: 0.5rem;
+                }
+
+                li {
+                    color: $offWhite;
+                    font-size: 1rem;
+                }
+            }
+        }
+    }
+
+    .register-form {
+        position: absolute;
+        top: 25vh;
+        left: 50vw;
+        transform: translateX(-50%);
+        padding: 3rem 6rem 2rem;
+        background-color: $offBlue;
+        text-align: center;
+        border: 0.1rem solid black;
+        color: $offWhite;
+
+        h3 {
+            font-size: 1.6rem;
+            margin: 2rem;
+        }
+
+        p {
+            margin-top: 4rem;
+        }
+
+        p:hover {
+            color: red;
+            cursor: pointer;
+        }
+    }
+
+    footer {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-evenly;
+        align-items: center;
+        width: 100%;
+        height: 4rem;
+        background-color: $offBlue;
+        border-top: solid 0.1rem black;
+        z-index: 2;
+        
+        p {
+            color: $offWhite;
+
+            a {
+                text-decoration: none;
+                color: chocolate;
+            }
+
+            a:hover {
+                color:burlywood;
+            }
+        }
+
+        form {
+            margin-right: 2rem;
+
+            button {
+                padding: 0;
+                background: none;
+                border: none;
+                font-size: 0.8rem;
+                font-weight: bold;
+                font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+                color: red;
+            }
+
+            button:hover {
+                color: burlywood;
+                cursor: pointer;
+            }
+        }
+    }
+
+    .card {
+        width: 40%;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-around;
+        align-items: center;
+        margin: 1rem;
+        padding: 2rem;
+        background-color: burlywood;
+        border: 0.1rem solid black;
+
+        h3 {
+            font-size: 1.6rem;
+            padding: 1rem;
+        }
+
+        p {
+            font-size: 1rem;
+            padding: 0.5rem;
+        }
+
+        form {
+            button {
+                background: none;
+                border: none;
+                font-size: 1.2rem;
+                font-weight: bold;
+                margin-top: 0.5rem;
+                color: $offBlue;
+            }
+
+            button:hover {
+                cursor: pointer;
+                color: fuchsia;
+            }
+        }
+
+        img {
+            width: 50%;
+        }
+    }
+
+    .routines-view {
+        text-align: center;
+
+        h1 {
+            font-size: 2rem;
+            margin: 1rem;
+        }
+
+        p {
+            font-size: 1.2rem;
+            margin: 0.5rem;
+        }
+    }
+
+    .routine-name {
+        font-size: 2rem;
+        margin: 1rem;
+    }
+
+    .routine-rating {
+        display: flex;
+        flex-direction: column;
+
+        p {
+            font-size: 1rem;
+            margin: 0.5rem;
+        }
+
+        div {
+            display: flex;
+            flex-direction: row;
+            justify-content: center;
+            align-items: center;
+
+            form {
+                button {
+                    background: none;
+                    border: none;
+                    font-size: 1rem;
+                    font-weight: bold;
+                    margin-top: 0.5rem;
+                    color: $offBlue;
+                }
+
+                button:hover {
+                    cursor: pointer;
+                    color: burlywood;
+                }
+            }
+        }
+    }
+}
+
+
+
+.hidden {
+    display: none;
+}
