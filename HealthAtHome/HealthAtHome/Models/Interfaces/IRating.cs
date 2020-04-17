@@ -7,5 +7,7 @@ namespace HealthAtHome.Models.Interfaces
     public interface IRating
     {
         Task<HttpResponseMessage> CreateRating(Rating rating);
+
+        Task<HttpResponseMessage> UpdateRating(Rating rating);
     }
 }

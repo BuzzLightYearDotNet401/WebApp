@@ -15,11 +15,12 @@ namespace HealthAtHome.Models
         public int RoutineNameId { get; set; }
 
         [JsonPropertyName("starRating")]
-        public StarRating StarRating { get; set; }
+        public int StarRating { get; set; }
     }
 
     public enum StarRating
     {
+        RatingNotFound = 0,
         OneStar = 1,
         TwoStar = 2,
         ThreeStar = 3,

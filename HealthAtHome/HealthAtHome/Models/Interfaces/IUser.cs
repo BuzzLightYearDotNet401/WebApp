@@ -11,5 +11,7 @@ namespace HealthAtHome.Models.Interfaces
         Task<User> GetUser();
         Task<HttpResponseMessage> RegisterUser(User user);
         Task<List<User>> LogIn();
+
+        Task<HttpResponseMessage> DeleteUser(int userId);
     }
 }
