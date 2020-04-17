@@ -16,6 +16,10 @@ namespace HealthAtHome.Models.Services
         private string baseURL = "https://healthathomeapi.azurewebsites.net/api";
         //private string baseURL = "https://localhost:5001/api";
 
+        /// <summary>
+        /// Get all the exercises from the DB.
+        /// </summary>
+        /// <returns>A list of all Exercises.</returns>
         public async Task<List<Exercise>> GetAllExercises()
         {
             string route = "exercises";
@@ -31,6 +35,11 @@ namespace HealthAtHome.Models.Services
             return result;
         }
 
+        /// <summary>
+        /// Get an exercise from the DB.
+        /// </summary>
+        /// <param name="id">The exercise ID.</param>
+        /// <returns>A single exercise from the DB.</returns>
         public async Task<Exercise> GetExerciseByID(int id)
         {
             string route = $"exercises/{id}";

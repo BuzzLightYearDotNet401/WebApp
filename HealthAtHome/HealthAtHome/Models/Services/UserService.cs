@@ -17,6 +17,12 @@ namespace HealthAtHome.Models.Services
         private string baseURL = "https://healthathomeapi.azurewebsites.net/api";
         //private string baseURL = "https://localhost:44310/api";
 
+
+        /// <summary>
+        /// Deletes a user from a DB.
+        /// </summary>
+        /// <param name="userId"></param>
+        /// <returns></returns>
         public async Task<HttpResponseMessage> DeleteUser(int userId)
         {
             string route = $"users/{userId}";
@@ -30,6 +36,10 @@ namespace HealthAtHome.Models.Services
             return streamTask;
         }
 
+        /// <summary>
+        /// Get a user from the DB.
+        /// </summary>
+        /// <returns>A user.</returns>
         public async Task<User> GetUser()
         {
             string route = "users";
@@ -45,6 +55,10 @@ namespace HealthAtHome.Models.Services
             return result;
         }
 
+        /// <summary>
+        /// Logs in an existing user.
+        /// </summary>
+        /// <returns>success or fail.</returns>
         public async Task<List<User>> LogIn()
         {
             string route = "users";
@@ -62,10 +76,10 @@ namespace HealthAtHome.Models.Services
 
 
         /// <summary>
-        /// Sends data for a new user to the API
+        /// Registers a new user.
         /// </summary>
-        /// <param name="user">User name</param>
-        /// <returns>Response message</returns>
+        /// <param name="user">The user to register.</param>
+        /// <returns>Success or fail.</returns>
         public async Task<HttpResponseMessage> RegisterUser(User user)
         {
 

@@ -35,8 +35,10 @@ namespace HealthAtHome.ViewModels
         // Individual routine.
         public Routine RoutineThing { get; set; }
 
+        // the ID for the Rating.
         public int RoutineID { get; set; }
 
+        // the rating for the Routine.
         public StarRating Rating { get; set; }
     }
 

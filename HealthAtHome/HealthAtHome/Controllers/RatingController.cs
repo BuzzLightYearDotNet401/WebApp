@@ -20,12 +20,18 @@ namespace HealthAtHome.Controllers
             _rating = rating;
         }
 
+        // STRETCH
         [HttpGet]
         public IActionResult Favorites(LoggedInUser currentUser)
         {
             return View(currentUser);
         }
 
+        /// <summary>
+        /// Create a new rating for a routine and user.
+        /// </summary>
+        /// <param name="currentUser">The current user.</param>
+        /// <returns>The specific Routine View.</returns>
         [HttpPost]
         public async Task<IActionResult> CreateRating(LoggedInUser currentUser)
         {
@@ -46,6 +52,11 @@ namespace HealthAtHome.Controllers
             return RedirectToAction("GetARoutine", "Routine", currentUser);
         }
 
+        /// <summary>
+        /// Updates an existing rating for a routine.
+        /// </summary>
+        /// <param name="currentUser">The current user.</param>
+        /// <returns>The specific routine View.</returns>
         [HttpPost, Route("bananas")]
         public async Task<IActionResult> UpdateRating(LoggedInUser currentUser)
         {

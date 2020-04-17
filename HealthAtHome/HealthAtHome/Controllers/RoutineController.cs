@@ -18,7 +18,11 @@ namespace HealthAtHome.Controllers
             _routine = routine;
         }
 
-        // Get all Routines View.
+       /// <summary>
+       /// Get all the Routines.
+       /// </summary>
+       /// <param name="user">The current user.</param>
+       /// <returns>The Routines View.</returns>
         // Route: /routine
         [ActionName("Routines")]
         [HttpGet]
@@ -31,6 +35,11 @@ namespace HealthAtHome.Controllers
             return View(user);
         }
 
+        /// <summary>
+        /// Gets a specific routine from the DB and renders it.
+        /// </summary>
+        /// <param name="user">The current user.</param>
+        /// <returns>The specific routine View.</returns>
         // Route: /routine/5
         [ActionName("GetARoutine")]
         [HttpGet, Route("potato")]

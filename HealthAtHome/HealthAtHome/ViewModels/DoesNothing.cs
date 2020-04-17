@@ -7,5 +7,6 @@ namespace HealthAtHome.ViewModels
 {
     public class DoesNothing
     {
+        // Does Nothing.
     }
 }
