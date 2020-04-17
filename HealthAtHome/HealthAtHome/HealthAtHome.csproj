@@ -17,4 +17,7 @@
     <None Include="wwwroot\Assets\RatingIcons\gym.svg" />
     <None Include="wwwroot\Assets\RatingIcons\gym2.svg" />
   </ItemGroup>
+  <ItemGroup>
+    <Folder Include="wwwroot\Assets\Poses\" />
+  </ItemGroup>
 </Project>
