@@ -1,0 +1,34 @@
+﻿@model HealthAtHome.ViewModels.LoggedInUser
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+    <div class="routines-view">
+        <h1>Welcome @Model.UserName</h1>
+
+        <p>Here are some workout routines for you to browse!</p>
+    </div>
+
+
+
+@foreach (var routine in Model.RoutineNames)
+{
+    Model.RoutineID = routine.ID;
+
+<div class="card">
+    <h3>@routine.Name</h3>
+
+    <p>Try out this routine and notice those gains!</p>
+
+    <form asp-controller="Routine" asp-action="GetARoutine" method="get">
+        <input asp-for="@Model.ID" value="@Model.ID" hidden />
+        <input asp-for="@Model.UserName" value="@Model.UserName" hidden />
+        <input asp-for="@Model.IsLoggedIn" value="@Model.IsLoggedIn" hidden />
+        <input asp-for="@Model.RoutineNames" value="@Model.RoutineNames" hidden />
+        <input asp-for="@Model.RoutineThing" value="@Model.RoutineThing" hidden />
+        <input asp-for="@Model.RoutineID" value="@Model.RoutineID" hidden />
+        <button type="submit">View Routine</button>
+    </form>
+</div>
+}

@@ -1,0 +1,66 @@
+﻿@model HealthAtHome.ViewModels.LoggedInUser
+@{
+    ViewData["Title"] = "Exercise";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<link rel="stylesheet" href="~/Styles/HomeLayout.css" />
+
+<h1 class="routine-name">@Model.RoutineThing.Name</h1>
+
+
+<div class="routine-rating">
+    <p>Routine Rating: @Model.Rating</p>
+
+    <div>
+        <p>Update Rating:</p>
+        @if (Model.Rating == HealthAtHome.Models.StarRating.RatingNotFound)
+        {
+            <form asp-controller="Rating" asp-action="CreateRating" method="post">
+                <select asp-for="@Model.Rating">
+                    <option value="1">1</option>
+                    <option value="2">2</option>
+                    <option value="3">3</option>
+                    <option value="4">4</option>
+                    <option value="5">5</option>
+                </select>
+                <input asp-for="@Model.ID" value="@Model.ID" hidden />
+                <input asp-for="@Model.UserName" value="@Model.UserName" hidden />
+                <input asp-for="@Model.IsLoggedIn" value="@Model.IsLoggedIn" hidden />
+                <input asp-for="@Model.RoutineNames" value="@Model.RoutineNames" hidden />
+                <input asp-for="@Model.RoutineThing" value="@Model.RoutineThing" hidden />
+                <input asp-for="@Model.RoutineID" value="@Model.RoutineID" hidden />
+                <button type="submit">Rate It!</button>
+            </form>
+        }
+        else
+        {
+            <form asp-controller="Rating" asp-action="UpdateRating" method="post">
+                <select asp-for="@Model.Rating">
+                    <option value="1">1</option>
+                    <option value="2">2</option>
+                    <option value="3">3</option>
+                    <option value="4">4</option>
+                    <option value="5">5</option>
+                </select>
+                <input asp-for="@Model.ID" value="@Model.ID" hidden />
+                <input asp-for="@Model.UserName" value="@Model.UserName" hidden />
+                <input asp-for="@Model.IsLoggedIn" value="@Model.IsLoggedIn" hidden />
+                <input asp-for="@Model.RoutineNames" value="@Model.RoutineNames" hidden />
+                <input asp-for="@Model.RoutineThing" value="@Model.RoutineThing" hidden />
+                <input asp-for="@Model.RoutineID" value="@Model.RoutineID" hidden />
+                <button type="submit">Rate It!</button>
+            </form>
+        }
+    </div>
+</div>
+
+@foreach (var exercise in Model.RoutineThing.Exercises)
+{
+    <div class="card">
+        <h3>@exercise.Name</h3>
+        <p>@exercise.Description</p>
+        <p>Number of sets: @exercise.Sets</p>
+        <p>Number of reps: @exercise.Reps</p>
+        <img src="@exercise.Image" />
+    </div>
+}

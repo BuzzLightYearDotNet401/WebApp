@@ -1,0 +1,219 @@
+﻿/*************************/
+/* Variable Declarations */
+/*************************/
+body {
+  width: 100vw;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: #f0f0f0;
+  overflow-x: hidden; }
+  body header {
+    width: 100%;
+    height: 4rem;
+    background-color: #143c78;
+    border-bottom: solid 0.1rem black; }
+    body header nav {
+      display: flex;
+      flex-direction: row;
+      justify-content: center;
+      align-items: center;
+      padding: 1rem; }
+      body header nav form {
+        margin-right: 2rem; }
+        body header nav form button {
+          padding: 0;
+          background: none;
+          border: none;
+          font-size: 1.2rem;
+          font-weight: bold;
+          font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+          color: #f0f0f0; }
+        body header nav form button:hover {
+          color: burlywood;
+          cursor: pointer; }
+      body header nav a {
+        padding: 0;
+        font-size: 1.2rem;
+        text-decoration: none;
+        font-weight: bold;
+        font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+        color: #f0f0f0; }
+      body header nav a:hover {
+        color: burlywood;
+        cursor: pointer; }
+  body .hero-section {
+    position: relative;
+    height: 100vh;
+    width: 100vw;
+    left: 0;
+    top: 0; }
+    body .hero-section .hero-video {
+      position: absolute;
+      width: 100%;
+      left: 0;
+      top: 0;
+      overflow-y: hidden; }
+    body .hero-section .hero-overlay {
+      position: absolute;
+      height: 100%;
+      width: 100%;
+      left: 0;
+      top: 0;
+      background-color: black;
+      opacity: 0.6; }
+    body .hero-section .hero-content {
+      position: absolute;
+      height: 100%;
+      width: 100%;
+      left: 0;
+      top: 0;
+      text-align: center; }
+      body .hero-section .hero-content h1 {
+        font-size: 4rem;
+        font-weight: bold;
+        margin-top: 20vh;
+        color: #f0f0f0; }
+      body .hero-section .hero-content p {
+        font-size: 1.8rem;
+        color: #f0f0f0;
+        margin-top: 2rem; }
+      body .hero-section .hero-content .error {
+        font-size: 1rem;
+        color: red; }
+      body .hero-section .hero-content .login-form {
+        margin-top: 4rem; }
+        body .hero-section .hero-content .login-form p {
+          font-size: 1.4rem;
+          margin-bottom: 1rem; }
+        body .hero-section .hero-content .login-form label {
+          color: #f0f0f0; }
+      body .hero-section .hero-content .register-sub {
+        font-size: 1.2rem; }
+        body .hero-section .hero-content .register-sub span {
+          color: burlywood; }
+        body .hero-section .hero-content .register-sub span:hover {
+          cursor: pointer;
+          color: fuchsia; }
+      body .hero-section .hero-content .sue-text {
+        margin-top: 2.4rem;
+        font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif; }
+        body .hero-section .hero-content .sue-text p {
+          color: #f0f0f0;
+          font-size: 1rem;
+          padding: 0;
+          margin: 0.5rem; }
+        body .hero-section .hero-content .sue-text li {
+          color: #f0f0f0;
+          font-size: 1rem; }
+  body .register-form {
+    position: absolute;
+    top: 25vh;
+    left: 50vw;
+    transform: translateX(-50%);
+    padding: 3rem 6rem 2rem;
+    background-color: #143c78;
+    text-align: center;
+    border: 0.1rem solid black;
+    color: #f0f0f0; }
+    body .register-form h3 {
+      font-size: 1.6rem;
+      margin: 2rem; }
+    body .register-form p {
+      margin-top: 4rem; }
+    body .register-form p:hover {
+      color: red;
+      cursor: pointer; }
+  body footer {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+    width: 100%;
+    height: 4rem;
+    background-color: #143c78;
+    border-top: solid 0.1rem black;
+    z-index: 2; }
+    body footer p {
+      color: #f0f0f0; }
+      body footer p a {
+        text-decoration: none;
+        color: chocolate; }
+      body footer p a:hover {
+        color: burlywood; }
+    body footer form {
+      margin-right: 2rem; }
+      body footer form button {
+        padding: 0;
+        background: none;
+        border: none;
+        font-size: 0.8rem;
+        font-weight: bold;
+        font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+        color: red; }
+      body footer form button:hover {
+        color: burlywood;
+        cursor: pointer; }
+  body .card {
+    width: 40%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    margin: 1rem;
+    padding: 2rem;
+    background-color: burlywood;
+    border: 0.1rem solid black; }
+    body .card h3 {
+      font-size: 1.6rem;
+      padding: 1rem; }
+    body .card p {
+      font-size: 1rem;
+      padding: 0.5rem; }
+    body .card form button {
+      background: none;
+      border: none;
+      font-size: 1.2rem;
+      font-weight: bold;
+      margin-top: 0.5rem;
+      color: #143c78; }
+    body .card form button:hover {
+      cursor: pointer;
+      color: fuchsia; }
+    body .card img {
+      width: 50%; }
+  body .routines-view {
+    text-align: center; }
+    body .routines-view h1 {
+      font-size: 2rem;
+      margin: 1rem; }
+    body .routines-view p {
+      font-size: 1.2rem;
+      margin: 0.5rem; }
+  body .routine-name {
+    font-size: 2rem;
+    margin: 1rem; }
+  body .routine-rating {
+    display: flex;
+    flex-direction: column; }
+    body .routine-rating p {
+      font-size: 1rem;
+      margin: 0.5rem; }
+    body .routine-rating div {
+      display: flex;
+      flex-direction: row;
+      justify-content: center;
+      align-items: center; }
+      body .routine-rating div form button {
+        background: none;
+        border: none;
+        font-size: 1rem;
+        font-weight: bold;
+        margin-top: 0.5rem;
+        color: #143c78; }
+      body .routine-rating div form button:hover {
+        cursor: pointer;
+        color: burlywood; }
+
+.hidden {
+  display: none; }

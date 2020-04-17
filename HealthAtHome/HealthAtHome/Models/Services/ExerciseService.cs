@@ -13,9 +13,15 @@ namespace HealthAtHome.Models.Services
     {
         private static readonly HttpClient client = new HttpClient();
 
+        private string baseURL = "https://healthathomeapi.azurewebsites.net/api";
+        //private string baseURL = "https://localhost:5001/api";
+
+        /// <summary>
+        /// Get all the exercises from the DB.
+        /// </summary>
+        /// <returns>A list of all Exercises.</returns>
         public async Task<List<Exercise>> GetAllExercises()
         {
-            var baseURL = "https://healthathomeapi.azurewebsites.net/api";
             string route = "exercises";
 
             client.DefaultRequestHeaders.Accept.Clear();
@@ -25,6 +31,26 @@ namespace HealthAtHome.Models.Services
             var streamTask = await client.GetStreamAsync($"{baseURL}/{route}");
 
             var result = await JsonSerializer.DeserializeAsync<List<Exercise>>(streamTask);
+
+            return result;
+        }
+
+        /// <summary>
+        /// Get an exercise from the DB.
+        /// </summary>
+        /// <param name="id">The exercise ID.</param>
+        /// <returns>A single exercise from the DB.</returns>
+        public async Task<Exercise> GetExerciseByID(int id)
+        {
+            string route = $"exercises/{id}";
+
+            client.DefaultRequestHeaders.Accept.Clear();
+
+            client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
+
+            var streamTask = await client.GetStreamAsync($"{baseURL}/{route}");
+
+            var result = await JsonSerializer.DeserializeAsync<Exercise>(streamTask);
 
             return result;
         }
