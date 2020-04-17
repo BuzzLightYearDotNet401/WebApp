@@ -94,5 +94,18 @@ namespace HealthAtHome.Controllers
             user.ErrorType = FlashErrors.RegisterError;
             return RedirectToAction("LoginError", user);
         }
+
+        [HttpPost]
+        public async Task<IActionResult> DeleteUser(LoggedInUser currentUser)
+        {
+            var result = await _user.DeleteUser(currentUser.ID);
+
+            if (result.IsSuccessStatusCode == true)
+            {
+                return RedirectToAction("Index", "Home");
+            }
+
+            return RedirectToAction("Favorites", "Rating", currentUser);
+        }
     }
 }

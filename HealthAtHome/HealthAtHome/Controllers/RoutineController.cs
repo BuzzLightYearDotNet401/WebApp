@@ -42,6 +42,8 @@ namespace HealthAtHome.Controllers
 
             user.RoutineThing = result;
 
+            user.Rating = await _routine.GetRatingForRoutine(user);
+
             return View(user);
         }
     }

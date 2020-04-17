@@ -17,6 +17,19 @@ namespace HealthAtHome.Models.Services
         private string baseURL = "https://healthathomeapi.azurewebsites.net/api";
         //private string baseURL = "https://localhost:44310/api";
 
+        public async Task<HttpResponseMessage> DeleteUser(int userId)
+        {
+            string route = $"users/{userId}";
+
+            client.DefaultRequestHeaders.Accept.Clear();
+
+            client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
+
+            var streamTask = await client.DeleteAsync($"{baseURL}/{route}");
+
+            return streamTask;
+        }
+
         public async Task<User> GetUser()
         {
             string route = "users";
