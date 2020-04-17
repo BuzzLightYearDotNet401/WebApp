@@ -4,20 +4,14 @@
 
 <html>
 <head>
+    <link rel="stylesheet" href="~/Styles/HomeLayout.css" type="text/css" />
+
     <meta name="viewport" content="width=device-width" />
     <title>Health At Home</title>
 </head>
 
 <body>
     <header>
-        @if (Model.UserName == "Anonymous")
-        {
-            <a asp-controller="Home" asp-action="Index">Home</a>
-        }
-        else
-        {
-            <a asp-controller="Home" asp-action="Index">Log Out</a>
-        }
     <form asp-action="Routines" asp-controller="Routine" method="get">
         <input asp-for="@Model.ID" value="@Model.ID" hidden />
         <input asp-for="@Model.UserName" value="@Model.UserName" hidden />
@@ -36,11 +30,22 @@
         <input asp-for="@Model.RoutineID" value="@Model.RoutineID" hidden />
         <button type="submit">Favorites</button>
     </form>
+        <div class="logout">
+        @if (Model.UserName == "Anonymous")
+        {
+            <a asp-controller="Home" asp-action="Index">Home</a>
+        }
+        else
+        {
+            <a asp-controller="Home" asp-action="Index">Log Out</a>
+        }
 
-
+        </div>
     </header>
 
+
     @RenderBody()
+
 <footer>
     Copyright &copy; 2020 - <a href="https://github.com/BuzzLightYearDotNet401" target="_blank">TeamBuzzLightYear</a>
 

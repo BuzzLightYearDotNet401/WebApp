@@ -13,8 +13,8 @@ namespace HealthAtHome.Models.Services
     {
         private static readonly HttpClient client = new HttpClient();
 
-        //private string baseURL = "https://healthathomeapi.azurewebsites.net/api";
-        private string baseURL = "https://localhost:44310/api";
+        private string baseURL = "https://healthathomeapi.azurewebsites.net/api";
+        //private string baseURL = "https://localhost:44310/api";
 
         public async Task<List<Routine>> GetAllRoutines()
         {
