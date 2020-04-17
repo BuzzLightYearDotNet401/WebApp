@@ -6,7 +6,6 @@ body{
     justify-content: center;
     align-items: center;
     height: 100%;
-    color: white;
 }
 
 header form {
@@ -15,19 +14,16 @@ header form {
 
 .logout {
     display: inline;
-    color: white;
 }
 .logout a{
     text-decoration: none;
     font-size: 1rem;
-   color: white;
 }
 
 header form button{
     border: none;
     background: none;
     font-size: 1rem;
-    color: white;
 }
 
 .hero-text {
@@ -56,5 +52,4 @@ header form button{
 }
 
 footer {
-    color: white;
 }
