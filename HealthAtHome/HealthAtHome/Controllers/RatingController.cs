@@ -39,7 +39,7 @@ namespace HealthAtHome.Controllers
             {
                 UserId = currentUser.ID,
                 RoutineNameId = currentUser.RoutineID,
-                StarRating = currentUser.Rating
+                StarRating =(int) currentUser.Rating
             };
 
             var result = await _rating.CreateRating(newRating);

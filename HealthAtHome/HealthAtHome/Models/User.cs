@@ -5,7 +5,7 @@ namespace HealthAtHome.Models
 {
     public class User
     {
-        [JsonPropertyName("userId")]
+        [JsonPropertyName("id")]
         public int ID { get; set; }
 
         [JsonPropertyName("name")]
