@@ -12,7 +12,7 @@ namespace HealthAtHome.ViewModels
         public int ID { get; set; }
 
         // The current user's username.
-        public string UserName { get; set; } = "Anonymous";
+        public string UserName { get; set; }
 
         // Is the current user logged in.
         public bool IsLoggedIn { get; set; }
@@ -35,8 +35,10 @@ namespace HealthAtHome.ViewModels
         // Individual routine.
         public Routine RoutineThing { get; set; }
 
+        // the ID for the Rating.
         public int RoutineID { get; set; }
 
+        // the rating for the Routine.
         public StarRating Rating { get; set; }
     }
 

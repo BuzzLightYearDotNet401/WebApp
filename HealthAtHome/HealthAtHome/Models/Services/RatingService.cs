@@ -15,6 +15,11 @@ namespace HealthAtHome.Models.Services
         private string baseURL = "https://healthathomeapi.azurewebsites.net/api";
         //private string baseURL = "https://localhost:44310/api";
 
+        /// <summary>
+        /// Create a new rating for a routine.
+        /// </summary>
+        /// <param name="rating">The rating to insert into the DB.</param>
+        /// <returns>The rating.</returns>
         public async Task<HttpResponseMessage> CreateRating(Rating rating)
         {
 
@@ -31,6 +36,11 @@ namespace HealthAtHome.Models.Services
             return streamTask;
         }
 
+        /// <summary>
+        /// Updates an existing rating in the DB.
+        /// </summary>
+        /// <param name="rating">the rating to update.</param>
+        /// <returns>The rating.</returns>
         public async Task<HttpResponseMessage> UpdateRating(Rating rating)
         {
             string route = $"ratings/{rating.ID}";

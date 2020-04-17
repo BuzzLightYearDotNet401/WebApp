@@ -4,8 +4,11 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h1>Welcome @Model.UserName</h1>
-<p>Your ID is: @Model.ID</p>
+    <div class="routines-view">
+        <h1>Welcome @Model.UserName</h1>
+
+        <p>Here are some workout routines for you to browse!</p>
+    </div>
 
 
 
@@ -13,7 +16,10 @@
 {
     Model.RoutineID = routine.ID;
 
+<div class="card">
     <h3>@routine.Name</h3>
+
+    <p>Try out this routine and notice those gains!</p>
 
     <form asp-controller="Routine" asp-action="GetARoutine" method="get">
         <input asp-for="@Model.ID" value="@Model.ID" hidden />
@@ -24,4 +30,5 @@
         <input asp-for="@Model.RoutineID" value="@Model.RoutineID" hidden />
         <button type="submit">View Routine</button>
     </form>
+</div>
 }

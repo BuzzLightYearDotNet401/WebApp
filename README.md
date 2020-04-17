@@ -76,6 +76,16 @@ Our schema consists of 5 tables:
 
 ## Change Log
 
+**1.0** - 20200417
+- Deployed to Azure App Services.
+
+**0.6** - 20200417
+- Finished documentation.
+- Finished styling.
+
+**0.5** - 20200516
+- Got Ratings to work.
+
 **0.4** - 20200415
 - Image assets for exercises render correctly.
 - Error messages render on user login and registration errors.
